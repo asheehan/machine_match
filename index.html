@@ -12,6 +12,16 @@
 <script type="text/javascript">
  
 var correctCards = 0;
+var celebrity = [
+  'jeff_zhao',
+  'jesse_buchsbaum',
+  'kevin_kelly',
+  'nick_prozorovsky',
+  'percy_stogdon',
+  'trent_kuhl',
+  'von_alanguilan'
+];
+
 $( init );
  
 function init() {
@@ -27,6 +37,7 @@ function init() {
  
   // Reset the game
   correctCards = 0;
+  $('#celebrityPile').html('');
   $('#cardPile').html( '' );
   $('#cardSlots').html( '' );
  
@@ -34,6 +45,16 @@ function init() {
   var numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
   numbers.sort( function() { return Math.random() - .5 } );
  
+  for (var i = 0; i < celebrity.length; i++) {
+    debugger;
+    $('<div>' + celebrity[i] + '</div>').data('celebrity', celebrity[i]).attr('id', 'celebrity-card-' + celebrity[i]).appendTo('#celebrityPile').dragable({
+      containment: '#content',
+      stack: '#celebrityPile div',
+      cursor: 'move',
+      revert: 'true'
+    });
+  }
+
   for ( var i=0; i<10; i++ ) {
     $('<div>' + numbers[i] + '</div>').data( 'number', numbers[i] ).attr( 'id', 'card'+numbers[i] ).appendTo( '#cardPile' ).draggable( {
       containment: '#content',
@@ -96,11 +117,12 @@ function handleCardDrop( event, ui ) {
  
 <div id="content">
  
+  <div id="celebrityPile"> </div>
   <div id="cardPile"> </div>
   <div id="cardSlots"> </div>
  
   <div id="successMessage">
-    <h2>You did it!</h2>
+    <h2>Nailed it!</h2>
     <button onclick="init()">Play Again</button>
   </div>
  

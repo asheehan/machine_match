@@ -48,12 +48,12 @@ h1, h2, h3, h4 {
  
 /* The initial pile of unsorted cards */
  
-#cardPile {
+#cardPile, #celebrityPile {
   margin: 0 auto;
   background: #ffd;
 }
  
-#cardSlots, #cardPile {
+#cardSlots, #cardPile, #celebrityPile {
   width: 910px;
   height: 120px;
   padding: 20px;
@@ -68,7 +68,7 @@ h1, h2, h3, h4 {
  
 /* Individual cards and slots */
  
-#cardSlots div, #cardPile div {
+#cardSlots div, #cardPile div, #celebrityPile div {
   float: left;
   width: 58px;
   height: 78px;
@@ -95,14 +95,15 @@ h1, h2, h3, h4 {
   border-style: dashed;
 }
  
-#cardPile div {
+#cardPile div, #celebrityPile div {
   background: #666;
   color: #fff;
   font-size: 50px;
   text-shadow: 0 0 3px #000;
 }
  
-#cardPile div.ui-draggable-dragging {
+#cardPile div.ui-draggable-dragging,
+#celebrityPile div.ui-draggable-dragging {
   -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
   -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
   box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
