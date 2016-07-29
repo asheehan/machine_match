@@ -15,17 +15,8 @@
         few extra styles here */
     </style>
 
-    <script type="text/ruby">
-      # Our ruby code will go here.  For now lets use a simple component
-      # to make sure things are working.  For the rest of the tutorial
-      # all the code we write will go in this section.
-      class App < React::Component::Base
-        before_mount { @timer = every(1) { force_update! } }
-        def render
-          "The current time is #{Time.now}"
-        end
-      end  
-    </script>
+    <script type="text/ruby" src="clock.rb" ></script>
+    <script type="text/ruby" src="app.rb" ></script>
   </head>
   <body>
     <!-- Tell inline reactive ruby to mount App here -->
